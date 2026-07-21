@@ -16,6 +16,12 @@ import { toast } from "sonner";
 
 const socialLinks = [
   {
+    label: "Email",
+    href: "mailto:mgenta999@gmail.com",
+    icon: <Mail className="h-5 w-5" />,
+    color: "from-red-500 to-orange-400",
+  },
+  {
     label: "WhatsApp",
     href: "https://wa.me/6289668561950",
     icon: <SiWhatsapp className="h-5 w-5" />,
@@ -23,7 +29,7 @@ const socialLinks = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/Schwan87",
     icon: <SiGithub className="h-5 w-5" />,
     color: "from-gray-500 to-gray-700",
   },

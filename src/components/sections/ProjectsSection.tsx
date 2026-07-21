@@ -3,14 +3,25 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { SiGithub } from "react-icons/si";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { staggerContainer, cardVariants } from "@/lib/animations";
+import { staggerContainer } from "@/lib/animations";
 import Link from "next/link";
 import Image from "next/image";
+
+const projectCardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1, y: 0, scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number,number,number,number] },
+  },
+  hover: {
+    opacity: 1, y: -8, scale: 1,
+    transition: { type: "spring" as const, stiffness: 200, damping: 22 },
+  },
+};
 
 const categories = ["All", "Web App", "Landing Page", "Dashboard"];
 
@@ -22,9 +33,30 @@ const projects = [
       "Official company profile website for CV Arcindo Perkasa. Built with responsive design, smooth animations, and a clean UI to highlight their manufacturing brand online.",
     category: "Landing Page",
     tech: ["Next.js", "Tailwind", "Framer Motion"],
-    github: "#",
     live: "https://cv-arcindo-perkasa.my.id/",
     image: "/arcindo.jpg",
+    status: "Completed",
+  },
+  {
+    id: 2,
+    title: "Hanya Karena Satu Foto",
+    description:
+      "A romantic digital experience crafted as a personal gift. Features animated flower blooms, floating hearts, sparkle particles, and glassmorphism cards — all built with pure HTML, CSS, and JavaScript.",
+    category: "Landing Page",
+    tech: ["HTML", "CSS", "JavaScript", "Canvas API"],
+    live: "https://schwan87.github.io/Buat-Nanda-2.0/",
+    image: "/nanda2.png",
+    status: "Completed",
+  },
+  {
+    id: 3,
+    title: "Tempat Kecil Kita",
+    description:
+      "A heartfelt digital love letter website — a personal gift celebrating every ordinary day made extraordinary. Features GSAP scroll animations, custom cursor glow, confetti effects, and a full multi-screen storytelling flow.",
+    category: "Landing Page",
+    tech: ["HTML", "CSS", "GSAP", "Typed.js", "Confetti"],
+    live: "https://schwan87.github.io/Buat-Nanda/",
+    image: "/nanda1.png",
     status: "Completed",
   },
 ];
@@ -96,14 +128,13 @@ export function ProjectsSection() {
               <motion.div
                 key={project.id}
                 layout
-                variants={cardVariants}
+                variants={projectCardVariants}
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, scale: 0.85, transition: { duration: 0.2 } }}
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 200, damping: 22 }}
+                whileHover="hover"
               >
-                <Card 
+                <Card
                   onClick={() => {
                     if (project.live && project.live !== "#") {
                       window.open(project.live, "_blank", "noopener,noreferrer");
@@ -128,54 +159,35 @@ export function ProjectsSection() {
                       fill
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
-                    {/* Hover Overlay with parent hover animation */}
+                    {/* Hover Overlay — reacts to parent card hover via variant */}
                     <motion.div
-                      initial="hidden"
-                      whileHover="visible"
                       variants={{
-                        hidden: { opacity: 0 },
-                        visible: { 
-                          opacity: 1,
-                          transition: { staggerChildren: 0.1 }
-                        }
+                        hidden: { opacity: 0, pointerEvents: "none" as const },
+                        visible: { opacity: 0, pointerEvents: "none" as const },
+                        hover: { opacity: 1, pointerEvents: "auto" as const, transition: { duration: 0.2 } },
                       }}
-                      className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
+                      className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center"
                     >
                       <motion.div
                         variants={{
-                          hidden: { scale: 0, y: 20 },
-                          visible: { scale: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } }
-                        }}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Link
-                          href={project.github}
-                          target="_blank"
-                          className={buttonVariants({
-                            variant: "secondary",
-                            size: "icon",
-                            className: "rounded-full",
-                          })}
-                        >
-                          <SiGithub className="h-4 w-4" />
-                        </Link>
-                      </motion.div>
-                      <motion.div
-                        variants={{
-                          hidden: { scale: 0, y: 20 },
-                          visible: { scale: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                          hidden: { scale: 0, y: 16 },
+                          visible: { scale: 0, y: 16 },
+                          hover: {
+                            scale: 1,
+                            y: 0,
+                            transition: { type: "spring", stiffness: 300, damping: 20, delay: 0.05 },
+                          },
                         }}
                       >
                         <Link
                           href={project.live}
                           target="_blank"
-                          className={buttonVariants({
-                            variant: "default",
-                            size: "icon",
-                            className: "rounded-full",
-                          })}
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold text-sm shadow-lg hover:shadow-blue-500/40 transition-shadow"
                         >
                           <ExternalLink className="h-4 w-4" />
+                          Visit Site
                         </Link>
                       </motion.div>
                     </motion.div>

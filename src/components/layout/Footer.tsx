@@ -22,7 +22,7 @@ export function Footer() {
               Information Systems student &amp; Frontend Developer building fast, modern web applications.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -40,11 +40,11 @@ export function Footer() {
               </li>
             </ul>
           </div>
- 
+
           <div>
             <h3 className="font-semibold text-lg mb-4">Social Media</h3>
             <div className="flex gap-4">
-              <Link href="https://github.com" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://github.com/Schwan87" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                 <FaGithub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
@@ -56,14 +56,14 @@ export function Footer() {
                 <FaInstagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="mailto:contact@email.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="mailto:mgenta999@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
             </div>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground text-center md:text-left">
             &copy; {new Date().getFullYear()} Muhammad Genta Dwiputra. All rights reserved.

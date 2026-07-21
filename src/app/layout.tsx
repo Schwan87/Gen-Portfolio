@@ -50,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${plusJakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}>
+      <body suppressHydrationWarning className={`${outfit.variable} ${plusJakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
