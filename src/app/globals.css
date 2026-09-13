@@ -185,8 +185,9 @@
       rgba(34, 211, 238, 0.1) 75%,
       rgba(59, 130, 246, 0.15) 100%
     );
-    background-size: 400% 400%;
-    animation: aurora 12s ease infinite;
+    background-size: 200% 200%;
+    animation: aurora 16s ease infinite;
+    will-change: background-position;
   }
 
   .dot-pattern {
@@ -201,9 +202,8 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-18px) rotate(1deg); }
-  66% { transform: translateY(-8px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
 }
 
 @keyframes shimmer {
@@ -239,18 +239,33 @@
 
 .animate-glow-pulse {
   animation: glow-pulse 4s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
 .animate-orbit {
   animation: orbit 12s linear infinite;
+  will-change: transform;
 }
 
 .animate-orbit-reverse {
   animation: orbit-reverse 18s linear infinite;
+  will-change: transform;
 }
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+  will-change: transform;
+}
+
+/* Skill bar glow tip — replaces Framer Motion infinite animate */
+@keyframes skill-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.skill-glow-tip {
+  animation: skill-glow 1.8s ease-in-out infinite;
+  will-change: opacity;
 }
 
 /* ── Typing cursor ── */
@@ -287,12 +302,13 @@
 
 /* ── Neon pulse ── */
 @keyframes neon-pulse {
-  0%, 100% { text-shadow: 0 0 4px rgba(34,211,238,0.4), 0 0 10px rgba(34,211,238,0.2); }
-  50%       { text-shadow: 0 0 8px rgba(34,211,238,0.8), 0 0 20px rgba(34,211,238,0.4), 0 0 40px rgba(34,211,238,0.2); }
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
 }
 
 .animate-neon-pulse {
   animation: neon-pulse 2.5s ease-in-out infinite;
+  will-change: opacity;
 }
 
 /* ── Counter number roll ── */

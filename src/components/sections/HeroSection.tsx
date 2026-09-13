@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { ArrowRight, Download, Mail, Sparkles, Code2, Zap } from "lucide-react";
+import { ArrowRight, Download, Mail, Sparkles, Code2 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +16,7 @@ const roles = [
 
 const stats = [
   { value: "1+", label: "Year Experience" },
-  { value: "5+", label: "Projects Built" },
+  { value: "8+", label: "Projects Built" },
   { value: "10+", label: "Tech Stack Tools" },
 ];
 
@@ -61,21 +61,15 @@ export function HeroSection() {
         <div className="absolute inset-0 dot-pattern opacity-40" />
       </motion.div>
 
-      {/* Floating large glow orbs */}
-      <motion.div
-        animate={{ x: [0, 40, -20, 0], y: [0, -60, 20, 0], scale: [1, 1.1, 0.95, 1] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[15%] left-[5%] w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-[120px] -z-10 animate-glow-pulse"
-      />
-      <motion.div
-        animate={{ x: [0, -50, 30, 0], y: [0, 40, -30, 0], scale: [1, 0.9, 1.1, 1] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+      {/* Floating large glow orbs — static divs, CSS handles glow animation */}
+      <div className="absolute top-[15%] left-[5%] w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-[120px] -z-10 animate-glow-pulse" />
+      <div
         className="absolute bottom-[10%] right-[5%] w-[450px] h-[450px] rounded-full bg-cyan-500/20 blur-[120px] -z-10 animate-glow-pulse"
+        style={{ animationDelay: "2s" }}
       />
-      <motion.div
-        animate={{ x: [0, 30, -40, 0], y: [0, -20, 50, 0] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 6 }}
-        className="absolute top-[50%] left-[50%] w-[300px] h-[300px] rounded-full bg-violet-500/10 blur-[100px] -z-10"
+      <div
+        className="absolute top-[50%] left-[50%] w-[300px] h-[300px] rounded-full bg-violet-500/10 blur-[100px] -z-10 animate-glow-pulse"
+        style={{ animationDelay: "4s" }}
       />
 
       {/* === MAIN CONTENT === */}
@@ -92,19 +86,11 @@ export function HeroSection() {
           >
             {/* Available badge */}
             <motion.div variants={itemVariants} className="flex justify-center md:justify-start">
-              <motion.div
-                animate={{ boxShadow: ["0 0 0px rgba(34,211,238,0.3)", "0 0 20px rgba(34,211,238,0.5)", "0 0 0px rgba(34,211,238,0.3)"] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium"
-              >
-                <motion.span
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-2 h-2 rounded-full bg-cyan-400 inline-block"
-                />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium animate-neon-pulse">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block animate-ping" />
                 <Sparkles className="h-3.5 w-3.5" />
                 Available for Freelance & Internship
-              </motion.div>
+              </div>
             </motion.div>
 
             {/* Greeting */}
@@ -207,29 +193,23 @@ export function HeroSection() {
             <div className="relative w-72 h-72 md:w-96 md:h-96">
 
               {/* Spinning outer ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-12px] rounded-full border border-dashed border-blue-500/30"
+              <div
+                className="absolute inset-[-12px] rounded-full border border-dashed border-blue-500/30 animate-spin-slow pointer-events-none"
               />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-24px] rounded-full border border-dashed border-cyan-500/20"
+              <div
+                className="absolute inset-[-24px] rounded-full border border-dashed border-cyan-500/20 animate-orbit-reverse pointer-events-none"
               />
 
               {/* Glowing gradient ring */}
-              <motion.div
-                animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.02, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 p-[3px]"
+              <div
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 p-[3px] animate-glow-pulse"
               >
                 <div className="w-full h-full bg-background rounded-full overflow-hidden p-2">
                   <div className="w-full h-full bg-muted rounded-full overflow-hidden relative">
-                    <Image src="/profile.jpg" alt="Muhammad Genta Dwiputra" fill className="object-cover object-center" />
+                  <Image src="/profile.jpg" alt="Muhammad Genta Dwiputra" fill sizes="(max-width: 768px) 288px, 384px" className="object-cover object-center" priority />
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Floating tech icons around photo */}
               {floatingIcons.map((item, i) => (

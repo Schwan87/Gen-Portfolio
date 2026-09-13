@@ -11,7 +11,7 @@ import type { Variants } from "framer-motion";
 // ─── Shared easing curves (properly typed) ───────────────────────────────────
 
 const EASE_SMOOTH = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
-const EASE_SPRING_OUT = [0.34, 1.56, 0.64, 1] as [number, number, number, number];
+export const EASE_SPRING_OUT = [0.34, 1.56, 0.64, 1] as [number, number, number, number];
 
 // ─── Fade + Slide Variants ───────────────────────────────────────────────────
 

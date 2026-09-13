@@ -70,16 +70,11 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Animated background */}
-      <motion.div
-        animate={{ x: [0, 30, -15, 0], y: [0, -40, 20, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl -z-10"
-      />
-      <motion.div
-        animate={{ x: [0, -20, 30, 0], y: [0, 30, -20, 0] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 5 }}
-        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10"
+      {/* Background — static, no JS animation */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl -z-10 animate-glow-pulse" />
+      <div
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10 animate-glow-pulse"
+        style={{ animationDelay: "4s" }}
       />
 
       <div className="container mx-auto px-4 md:px-8">
@@ -143,13 +138,9 @@ export function ContactSection() {
                   transition={{ duration: 0.5 }}
                   className="text-center mb-8"
                 >
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="inline-block mb-3"
-                  >
+                  <div className="inline-block mb-3 hover:rotate-12 transition-transform duration-300">
                     <Sparkles className="h-6 w-6 text-cyan-400 mx-auto" />
-                  </motion.div>
+                  </div>
                   <h3 className="text-2xl font-bold mb-2">Let&apos;s Work Together</h3>
                   <p className="text-muted-foreground">
                     Got a web project in mind, a collaboration idea, or just want to connect? Drop a message below and it will send directly to my WhatsApp!
@@ -246,12 +237,9 @@ export function ContactSection() {
                       ) : (
                         <>
                           Send Message
-                          <motion.div
-                            animate={{ x: [0, 4, 0] }}
-                            transition={{ duration: 1.2, repeat: Infinity }}
-                          >
+                          <div className="group-hover:translate-x-1 transition-transform duration-200">
                             <Send className="h-4 w-4" />
-                          </motion.div>
+                          </div>
                         </>
                       )}
                     </Button>

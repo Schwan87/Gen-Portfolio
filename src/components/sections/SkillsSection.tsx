@@ -86,12 +86,8 @@ function SkillBar({ name, level, icon, color, index }: { name: string; level: nu
           transition={{ duration: 1.1, delay: index * 0.07 + 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className={`h-full bg-gradient-to-r ${color} rounded-full relative`}
         >
-          {/* Glow tip */}
-          <motion.div
-            animate={{ opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/80 blur-[2px]"
-          />
+          {/* Glow tip — CSS animation, no JS runtime cost */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/80 blur-[2px] skill-glow-tip" />
         </motion.div>
       </div>
     </motion.div>
@@ -118,7 +114,7 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {skillCategories.map((category, idx) => (
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={fadeUp}

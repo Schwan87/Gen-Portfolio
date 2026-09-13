@@ -23,7 +23,7 @@ const projectCardVariants = {
   },
 };
 
-const categories = ["All", "Web App", "Landing Page", "Interactive Web", "Dashboard"];
+const categories = ["All", "Web App", "Landing Page", "Interactive Web", "Dashboard", "Mobile App", "Game"];
 
 export interface ProjectItem {
   id: number;
@@ -117,6 +117,32 @@ const projects: ProjectItem[] = [
     image: "/nanda1.png",
     status: "Completed",
   },
+  {
+    id: 7,
+    title: "Kasirku",
+    description:
+      "Aplikasi kasir (Point of Sale) berbasis Flutter yang mendukung manajemen produk, transaksi, inventaris, dan laporan. Dilengkapi dengan autentikasi Supabase, navigasi adaptif, dan tampilan neon yang modern.",
+    category: "Mobile App",
+    displayCategory: "Mobile App / Full Stack",
+    tech: ["Flutter", "Dart", "Supabase", "Riverpod", "Go Router"],
+    live: "https://github.com/Schwan87/Kasirku",
+    github: "https://github.com/Schwan87/Kasirku",
+    image: "/kasirku-app.png",
+    status: "Completed",
+  },
+  {
+    id: 8,
+    title: "BEAT GRID — First Game",
+    description:
+      "Game rhythm 4-lane bertema Cyberpunk Neon yang dibuat menggunakan Python dan Pygame. Dilengkapi Song Selection, sistem hit judgement 4-tier (Perfect/Great/Good/Miss), sinkronisasi audio, combo counter, dan sistem peringkat S hingga D.",
+    category: "Game",
+    displayCategory: "Game / Desktop App",
+    tech: ["Python", "Pygame", "JSON Chart", "Audio Engine"],
+    live: "https://github.com/Schwan87/Fake_GuitarHero",
+    github: "https://github.com/Schwan87/Fake_GuitarHero",
+    image: "/first-game.png",
+    status: "Completed",
+  },
 ];
 
 export function ProjectsSection() {
@@ -128,17 +154,12 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
-      {/* Animated background */}
+      {/* Background — static divs, no JS animation */}
       <div className="absolute inset-0 bg-secondary/30 -z-10" />
-      <motion.div
-        animate={{ x: [0, 40, -20, 0], y: [0, -30, 15, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl -z-10"
-      />
-      <motion.div
-        animate={{ x: [0, -30, 20, 0], y: [0, 40, -20, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 5 }}
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10"
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl -z-10 animate-glow-pulse" />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10 animate-glow-pulse"
+        style={{ animationDelay: "3s" }}
       />
 
       <div className="container mx-auto px-4 md:px-8">
@@ -215,6 +236,7 @@ export function ProjectsSection() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Hover Overlay — reacts to parent card hover via variant */}
@@ -280,18 +302,13 @@ export function ProjectsSection() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                      {project.tech.map((t, i) => (
-                        <motion.span
+                      {project.tech.map((t) => (
+                        <span
                           key={t}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.06, type: "spring" }}
-                          whileHover={{ scale: 1.1, y: -1 }}
-                          className="text-xs font-medium text-foreground bg-secondary px-2 py-1 rounded-md cursor-default"
+                          className="text-xs font-medium text-foreground bg-secondary px-2 py-1 rounded-md cursor-default hover:scale-105 hover:-translate-y-0.5 transition-transform duration-150"
                         >
                           {t}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
 

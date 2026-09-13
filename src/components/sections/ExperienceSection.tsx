@@ -33,16 +33,11 @@ const experiences = [
 export function ExperienceSection() {
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
-      {/* Animated background blobs */}
-      <motion.div
-        animate={{ x: [0, 30, -20, 0], y: [0, -20, 10, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-500/5 blur-3xl -z-10"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.15, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10"
+      {/* Background — static divs, no JS animation */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-500/5 blur-3xl -z-10 animate-glow-pulse" />
+      <div
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl -z-10 animate-glow-pulse"
+        style={{ animationDelay: "3s" }}
       />
 
       <div className="container mx-auto px-4 md:px-8">
@@ -114,12 +109,9 @@ export function ExperienceSection() {
                     <div className="flex flex-col md:flex-row md:items-start justify-between mb-5 gap-3">
                       <div>
                         <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
-                          <motion.div
-                            animate={{ rotate: [0, 10, -5, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, delay: index }}
-                          >
+                          <div className="hover:rotate-12 transition-transform duration-300">
                             <Briefcase className="h-5 w-5 text-primary" />
-                          </motion.div>
+                          </div>
                           {exp.title}
                         </h3>
                         <p className="text-sm text-cyan-500/80 mt-1 ml-7 font-medium">{exp.company}</p>

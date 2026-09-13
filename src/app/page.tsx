@@ -1,15 +1,32 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { EducationSection } from "@/components/sections/EducationSection";
-import { CertificatesSection } from "@/components/sections/CertificatesSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { Toaster } from "@/components/ui/sonner";
+
+// Below-fold sections — lazy loaded for better initial bundle size
+const ServicesSection = dynamic(() =>
+  import("@/components/sections/ServicesSection").then((m) => ({ default: m.ServicesSection }))
+);
+const SkillsSection = dynamic(() =>
+  import("@/components/sections/SkillsSection").then((m) => ({ default: m.SkillsSection }))
+);
+const ExperienceSection = dynamic(() =>
+  import("@/components/sections/ExperienceSection").then((m) => ({ default: m.ExperienceSection }))
+);
+const ProjectsSection = dynamic(() =>
+  import("@/components/sections/ProjectsSection").then((m) => ({ default: m.ProjectsSection }))
+);
+const EducationSection = dynamic(() =>
+  import("@/components/sections/EducationSection").then((m) => ({ default: m.EducationSection }))
+);
+const CertificatesSection = dynamic(() =>
+  import("@/components/sections/CertificatesSection").then((m) => ({ default: m.CertificatesSection }))
+);
+const ContactSection = dynamic(() =>
+  import("@/components/sections/ContactSection").then((m) => ({ default: m.ContactSection }))
+);
 
 export default function Home() {
   return (
@@ -31,3 +48,4 @@ export default function Home() {
     </>
   );
 }
+
