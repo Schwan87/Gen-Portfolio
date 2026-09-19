@@ -18,7 +18,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Genta | Frontend Developer Portfolio",
   description: "Portfolio website of Muhammad Genta Dwiputra, an Information Systems student and Frontend Web Developer. Experience in React, Next.js, Tailwind CSS, and more.",
-  keywords: ["Frontend Developer", "Web Developer", "Portfolio", "React", "Next.js", "Mahasiswa Sistem Informasi", "Genta", "Muhammad Genta Dwiputra"],
+  keywords: ["Frontend Developer", "Web Developer", "Portfolio", "React", "Next.js", "Information Systems Student", "Genta", "Muhammad Genta Dwiputra"],
   authors: [{ name: "Muhammad Genta Dwiputra" }],
   openGraph: {
     title: "Genta | Frontend Developer Portfolio",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
-    locale: "id_ID",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body suppressHydrationWarning className={`${outfit.variable} ${plusJakartaSans.variable} font-sans min-h-screen flex flex-col antialiased`}>
         <ThemeProvider
           attribute="class"

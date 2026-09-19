@@ -55,14 +55,14 @@ export function ContactSection() {
     const message = formData.get("message") as string;
 
     const whatsappNumber = "6289668561950";
-    const text = `Halo Genta, perkenalkan nama saya ${name}.\nEmail saya: ${email}\n\nPesan:\n${message}`;
+    const text = `Hello Genta, my name is ${name}.\nMy email: ${email}\n\nMessage:\n${message}`;
     const encodedText = encodeURIComponent(text);
 
     setTimeout(() => {
       setIsSubmitting(false);
       window.open(`https://wa.me/${whatsappNumber}?text=${encodedText}`, "_blank");
-      toast.success("Mengarahkan ke WhatsApp...", {
-        description: "Silakan lanjutkan pengiriman pesan melalui WhatsApp.",
+      toast.success("Redirecting to WhatsApp...", {
+        description: "Please continue sending your message via WhatsApp.",
       });
       (e.target as HTMLFormElement).reset();
     }, 500);

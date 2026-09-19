@@ -43,7 +43,7 @@ const projects: ProjectItem[] = [
     id: 1,
     title: "Rental Mobilku",
     description:
-      "Website rental mobil berbasis web yang dibuat untuk menampilkan informasi kendaraan dan mendukung proses pemesanan rental secara online.",
+      "A web-based car rental platform built to showcase vehicle catalogs and streamline online booking reservations.",
     category: "Web App",
     displayCategory: "Web Application / Full Stack",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
@@ -56,7 +56,7 @@ const projects: ProjectItem[] = [
     id: 2,
     title: "SaveDuls — Video Downloader",
     description:
-      "Website downloader yang saya buat untuk membantu pengguna mengunduh media dari platform yang didukung. Website memiliki antarmuka sederhana dan proses pengunduhan yang dibuat agar mudah digunakan.",
+      "A lightweight media downloader web application built to help users fetch videos from supported platforms, featuring a clean user interface and effortless downloading.",
     category: "Web App",
     displayCategory: "Web Application / Backend & API",
     tech: ["Python", "FastAPI", "HTML5", "CSS3", "JavaScript"],
@@ -69,7 +69,7 @@ const projects: ProjectItem[] = [
     id: 3,
     title: "Bubble Sort Spider-Man",
     description:
-      "Website interaktif untuk memvisualisasikan algoritma Bubble Sort menggunakan konsep Spider-Man. Animasi memperlihatkan proses perbandingan dan pertukaran elemen secara visual sehingga proses algoritma lebih menarik dan mudah dipahami.",
+      "An interactive web application visualizing the Bubble Sort algorithm through a Spider-Man theme, using step-by-step animations to make algorithm comparisons and swaps intuitive and engaging.",
     category: "Interactive Web",
     displayCategory: "Interactive Web / Algorithm Visualization",
     tech: ["HTML5", "CSS3", "JavaScript", "SVG", "Algorithm Visualization"],
@@ -121,7 +121,7 @@ const projects: ProjectItem[] = [
     id: 7,
     title: "Kasirku",
     description:
-      "Aplikasi kasir (Point of Sale) berbasis Flutter yang mendukung manajemen produk, transaksi, inventaris, dan laporan. Dilengkapi dengan autentikasi Supabase, navigasi adaptif, dan tampilan neon yang modern.",
+      "A modern Point of Sale (POS) application built with Flutter, featuring product and transaction management, real-time inventory tracking, Supabase authentication, and a sleek neon UI.",
     category: "Mobile App",
     displayCategory: "Mobile App / Full Stack",
     tech: ["Flutter", "Dart", "Supabase", "Riverpod", "Go Router"],
@@ -134,13 +134,39 @@ const projects: ProjectItem[] = [
     id: 8,
     title: "BEAT GRID — First Game",
     description:
-      "Game rhythm 4-lane bertema Cyberpunk Neon yang dibuat menggunakan Python dan Pygame. Dilengkapi Song Selection, sistem hit judgement 4-tier (Perfect/Great/Good/Miss), sinkronisasi audio, combo counter, dan sistem peringkat S hingga D.",
+      "A 4-lane rhythm game with a cyberpunk neon aesthetic built using Python and Pygame. Features song selection, a 4-tier hit judgement system (Perfect/Great/Good/Miss), audio synchronization, combo tracking, and an S-to-D grading scale.",
     category: "Game",
     displayCategory: "Game / Desktop App",
     tech: ["Python", "Pygame", "JSON Chart", "Audio Engine"],
     live: "https://github.com/Schwan87/Fake_GuitarHero",
     github: "https://github.com/Schwan87/Fake_GuitarHero",
     image: "/first-game.png",
+    status: "Completed",
+  },
+  {
+    id: 9,
+    title: "Miya Simulator",
+    description:
+      "A 2D precision archery challenge game where players aim and shoot arrows at dynamic moving targets with realistic flight physics and distance-based scoring.",
+    category: "Game",
+    displayCategory: "Game / Desktop App",
+    tech: ["Python", "Pygame", "Physics Engine", "Procedural Audio"],
+    live: "https://github.com/Schwan87/Miya_simulator",
+    github: "https://github.com/Schwan87/Miya_simulator",
+    image: "/miya-simulator.png",
+    status: "Completed",
+  },
+  {
+    id: 10,
+    title: "Cosmic Dodge",
+    description:
+      "A retro space arcade survival game where players navigate a neon ship to dodge incoming celestial obstacles and survive as long as possible.",
+    category: "Game",
+    displayCategory: "Game / 2D Arcade",
+    tech: ["Python", "Tkinter", "Canvas API", "Particle Physics"],
+    live: "https://github.com/Schwan87/Cosmic_Dodge",
+    github: "https://github.com/Schwan87/Cosmic_Dodge",
+    image: "/cosmic-dodge.png",
     status: "Completed",
   },
 ];
